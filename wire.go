@@ -8,3 +8,8 @@ func InitializeEvent(phrase string) Event {
     wire.Build(NewEvent, NewGreeter, NewMessage)
     return Event{}
 }
+
+func ResponseEvent(phrase string) Response {
+    wire.Build(NewResponse)
+    return Response{}
+}

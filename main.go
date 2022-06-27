@@ -14,7 +14,12 @@ type Greeter struct {
 
 type Message string
 
-type Test string
+type Response struct {
+    Writer Writer
+}
+
+type Writer string
+
 
 func NewEvent(g Greeter) (Event) {
     return Event{Greeter: g}
@@ -28,8 +33,11 @@ func NewMessage(p string) Message {
     return Message(p)
 }
 
-func NewTest(t string) Test {
-    return Test(t)
+func NewResponse(w Writer) (Response) {
+    return Response{Writer: w}
+}
+func NewWriter(r string) Writer {
+    return Writer(r)
 }
 
 func (e Event) Start() {
@@ -41,10 +49,14 @@ func (g Greeter) Great() Message {
     return g.Message
 }
 
+func (f Response) Res() Writer {
+    return f.Writer
+}
+
 func main() {
     e := InitializeEvent("takutakutakujiro")
-    f := Container("test")
-    fmt.Println(f)
+    f := ResponseEvent("test")
 
     e.Start()
+    f.Res()
 }
