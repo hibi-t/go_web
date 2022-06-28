@@ -10,6 +10,6 @@ func InitializeEvent(phrase string) Event {
 }
 
 func ResponseEvent(phrase string) Response {
-    wire.Build(NewResponse)
+    wire.Build(NewResponse, NewWriter, NewPointer)
     return Response{}
 }
