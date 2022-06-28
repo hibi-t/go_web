@@ -4,28 +4,23 @@ import (
 	//"database/sql"
 	//"log"
 	//"models"
+	"fmt"
 	"os"
-	//"github.com/vattle/sqlboiler/boil"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-    DB := os.Getenv("DB")
-    println(DB)
+	err := godotenv.Load(fmt.Sprintf("%s.env", os.Getenv("GO_ENV")))
+	if err != nil {
+		fmt.Printf("読み込み失敗\n")
+	}
+	env := os.Getenv("ENV")
+	DB := os.Getenv("DB")
+	DBUser := os.Getenv("DB_USER")
+	DBPass := os.Getenv("DB_PASS")
 
-    //db, err := sql.Open(DB, "dbname="+DBNAME+ "user="+DBUSER+ "password="+DBPW+ "sslmode="+SSLMODE)
-//     db, err := sql.Open("postgres", "dbname=DBNAME user=DBUSERNAME sslmode=disable")
-//     if err != nil {
-//         log.Println(err)
-//         return
-//     }
-//
-//     boil.SetDB(db)
-//
-//     users, err := models.UsersG().All()
-//     if err != nil {
-//         log.Println(err)
-//         return
-//     }
-//
-//     pp.Println(users)
+	fmt.Println(env)
+	fmt.Println(DB)
+	fmt.Println(DBUser)
+	fmt.Println(DBPass)
 }
