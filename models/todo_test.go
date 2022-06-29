@@ -730,3 +730,45 @@ func testTodosUpsert(t *testing.T) {
 		t.Error("want one record, got:", count)
 	}
 }
+
+func TestStore(t *testing.T) {
+    // prepare sample insert data
+    now := time.Now().UTC()
+    todos := []*models.Todo{
+        &models.Todo{
+            Title:    "Sample ToDo 1",
+            DueDate:  null.TimeFrom(now.Add(3 * time.Hour)),
+            Note:     null.StringFrom("note1..."),
+            Finished: false,
+        },
+        &models.Todo{
+            Title:    "Sample ToDo 2",
+            DueDate:  null.TimeFrom(now.Add(6 * time.Hour)),
+            Note:     null.StringFrom("note2..."),
+            Finished: false,
+        },
+    }
+
+    // store
+    if err := testApp.Store(todos); err != nil {
+        t.Fatal(err)
+    }
+
+    for _, v := range todos {
+        t.Log(fmt.Sprintf("%+v", v))
+    }
+}
+
+func TestFetchUnfinished(t *testing.T) {
+    todos, err := testApp.FetchUnfinished()
+    if err != nil {
+        t.Fatal(err)
+    }
+    for _, v := range todos {
+        var buf bytes.Buffer
+        if err := json.NewEncoder(&buf).Encode(v); err != nil {
+            t.Fatal(err)
+        }
+        t.Log(buf.String())
+    }
+}
