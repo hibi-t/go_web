@@ -2,6 +2,6 @@
   dbname="sample_db"
   host="localhost"
   port=5432
-  user="****"
+  user="hibi"
   pass=""
   sslmode="disable"

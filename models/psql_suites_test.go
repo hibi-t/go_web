@@ -7,6 +7,4 @@ import "testing"
 
 func TestUpsert(t *testing.T) {
 	t.Run("Textnotes", testTextnotesUpsert)
-
-	t.Run("Todos", testTodosUpsert)
 }

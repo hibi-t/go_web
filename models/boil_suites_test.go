@@ -13,64 +13,51 @@ import "testing"
 // Separating the tests thusly grants avoidance of Postgres deadlocks.
 func TestParent(t *testing.T) {
 	t.Run("Textnotes", testTextnotes)
-	t.Run("Todos", testTodos)
 }
 
 func TestDelete(t *testing.T) {
 	t.Run("Textnotes", testTextnotesDelete)
-	t.Run("Todos", testTodosDelete)
 }
 
 func TestQueryDeleteAll(t *testing.T) {
 	t.Run("Textnotes", testTextnotesQueryDeleteAll)
-	t.Run("Todos", testTodosQueryDeleteAll)
 }
 
 func TestSliceDeleteAll(t *testing.T) {
 	t.Run("Textnotes", testTextnotesSliceDeleteAll)
-	t.Run("Todos", testTodosSliceDeleteAll)
 }
 
 func TestExists(t *testing.T) {
 	t.Run("Textnotes", testTextnotesExists)
-	t.Run("Todos", testTodosExists)
 }
 
 func TestFind(t *testing.T) {
 	t.Run("Textnotes", testTextnotesFind)
-	t.Run("Todos", testTodosFind)
 }
 
 func TestBind(t *testing.T) {
 	t.Run("Textnotes", testTextnotesBind)
-	t.Run("Todos", testTodosBind)
 }
 
 func TestOne(t *testing.T) {
 	t.Run("Textnotes", testTextnotesOne)
-	t.Run("Todos", testTodosOne)
 }
 
 func TestAll(t *testing.T) {
 	t.Run("Textnotes", testTextnotesAll)
-	t.Run("Todos", testTodosAll)
 }
 
 func TestCount(t *testing.T) {
 	t.Run("Textnotes", testTextnotesCount)
-	t.Run("Todos", testTodosCount)
 }
 
 func TestHooks(t *testing.T) {
 	t.Run("Textnotes", testTextnotesHooks)
-	t.Run("Todos", testTodosHooks)
 }
 
 func TestInsert(t *testing.T) {
 	t.Run("Textnotes", testTextnotesInsert)
 	t.Run("Textnotes", testTextnotesInsertWhitelist)
-	t.Run("Todos", testTodosInsert)
-	t.Run("Todos", testTodosInsertWhitelist)
 }
 
 // TestToOne tests cannot be run in parallel
@@ -115,25 +102,20 @@ func TestToManyRemove(t *testing.T) {}
 
 func TestReload(t *testing.T) {
 	t.Run("Textnotes", testTextnotesReload)
-	t.Run("Todos", testTodosReload)
 }
 
 func TestReloadAll(t *testing.T) {
 	t.Run("Textnotes", testTextnotesReloadAll)
-	t.Run("Todos", testTodosReloadAll)
 }
 
 func TestSelect(t *testing.T) {
 	t.Run("Textnotes", testTextnotesSelect)
-	t.Run("Todos", testTodosSelect)
 }
 
 func TestUpdate(t *testing.T) {
 	t.Run("Textnotes", testTextnotesUpdate)
-	t.Run("Todos", testTodosUpdate)
 }
 
 func TestSliceUpdateAll(t *testing.T) {
 	t.Run("Textnotes", testTextnotesSliceUpdateAll)
-	t.Run("Todos", testTodosSliceUpdateAll)
 }

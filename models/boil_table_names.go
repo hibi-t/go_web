@@ -5,8 +5,6 @@ package models
 
 var TableNames = struct {
 	Textnote string
-	Todo     string
 }{
 	Textnote: "textnote",
-	Todo:     "todo",
 }
